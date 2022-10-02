@@ -1,5 +1,7 @@
 package tests.day20;
 
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HotelPage;
@@ -9,63 +11,54 @@ import utilities.Driver;
 public class C02_SmokeNegativeTest {
 
     @Test
-    public void wrongUser() {
-
-        //  https://www.hotelmycamp.com/ adresine git
+    public void yanlisKullanici() { // 1.Senoryo: yanlış kullanıcı, doğru şifre
+        // https://www.hotelmycamp.com/ adresine git
         Driver.getDriver().get(ConfigReader.getProperty("hotelUrl"));
-        HotelPage hotelPage=new HotelPage();
-
-        // login butonuna bas
+        HotelPage hotelPage = new HotelPage();
+        //login butonuna bas
         hotelPage.loginButton.click();
-
-        // test data username: manager1 ,  test data password : manager1!
+        //test data username: manager1 ,  test data password : manager1!
         hotelPage.userNameBox.sendKeys(ConfigReader.getProperty("hotelMyCampWrongUser"));
-        hotelPage.passwordBox.sendKeys(ConfigReader.getProperty("password"));
-        hotelPage.loginButtonForPage.click();
-
-        // Degerleri girildiginde sayfaya girilemedigini test et
+        Actions actions = new Actions(Driver.getDriver());
+        actions.sendKeys(Keys.TAB).sendKeys(ConfigReader.getProperty("password"))
+                .sendKeys(Keys.ENTER).perform();
+        //Degerleri girildiginde sayfaya girilemedigini test et
         Assert.assertTrue(hotelPage.logginFailed.isDisplayed());
+        //Sayfayı kapatınız
+        Driver.closeDriver();
     }
-
-
-
-
     @Test
-    public void wrongPassword() {
-
-        //  https://www.hotelmycamp.com/ adresine git
+    public void yanlisSifre() { //2.Seneryo: Doğru kullanıcı, Yanlış Şifre
+        // https://www.hotelmycamp.com/ adresine git
         Driver.getDriver().get(ConfigReader.getProperty("hotelUrl"));
-        HotelPage hotelPage=new HotelPage();
-
-        // login butonuna bas
+        HotelPage hotelPage = new HotelPage();
+        //login butonuna bas
         hotelPage.loginButton.click();
-
-        // test data username: manager1 ,  test data password : manager1!
+        //test data username: manager1 ,  test data password : manager1!
         hotelPage.userNameBox.sendKeys(ConfigReader.getProperty("userName"));
-        hotelPage.passwordBox.sendKeys(ConfigReader.getProperty("hotelMyCampWrongPassword"));
-        hotelPage.loginButtonForPage.click();
-
-        // Degerleri girildiginde sayfaya girilemedigini test et
+        Actions actions = new Actions(Driver.getDriver());
+        actions.sendKeys(Keys.TAB).sendKeys(ConfigReader.getProperty("hotelMyCampWrongPassword"))
+                .sendKeys(Keys.ENTER).perform();
+        //Degerleri girildiginde sayfaya girilemedigini test et
         Assert.assertTrue(hotelPage.logginFailed.isDisplayed());
+        //Sayfayı kapatınız
+        Driver.closeDriver();
     }
-
-
     @Test
-    public void wrongUserAndPassword() {
-
-        //  https://www.hotelmycamp.com/ adresine git
+    public void yanlisKullaniciSifre() { // 3. Senoryo: Yanlış kullanıcı, Yanlış şifre
+        // https://www.hotelmycamp.com/ adresine git
         Driver.getDriver().get(ConfigReader.getProperty("hotelUrl"));
-        HotelPage hotelPage=new HotelPage();
-
-        // login butonuna bas
+        HotelPage hotelPage = new HotelPage();
+        //login butonuna bas
         hotelPage.loginButton.click();
-
-        // test data username: manager1 ,  test data password : manager1!
+        //test data username: manager1 ,  test data password : manager1!
         hotelPage.userNameBox.sendKeys(ConfigReader.getProperty("hotelMyCampWrongUser"));
-        hotelPage.passwordBox.sendKeys(ConfigReader.getProperty("hotelMyCampWrongPassword"));
-        hotelPage.loginButtonForPage.click();
-
-        // Degerleri girildiginde sayfaya girilemedigini test et
+        Actions actions = new Actions(Driver.getDriver());
+        actions.sendKeys(Keys.TAB).sendKeys(ConfigReader.getProperty("hotelMyCampWrongPassword"))
+                .sendKeys(Keys.ENTER).perform();
+        //Degerleri girildiginde sayfaya girilemedigini test et
         Assert.assertTrue(hotelPage.logginFailed.isDisplayed());
+        //Sayfayı kapatınız
+        Driver.closeDriver();
     }
 }

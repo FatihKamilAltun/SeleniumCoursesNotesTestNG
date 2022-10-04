@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import utilities.TestBaseBeforeClassAfterClass;
 
 public class C04_DependsOnMethod extends TestBaseBeforeClassAfterClass {
-    @Test
+    @Test (groups = "gp1")
     public void test1() {
         // amazon anasayfasina gidelim
         driver.get("https://amazon.com");

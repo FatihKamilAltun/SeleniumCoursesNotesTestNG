@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import utilities.TestBaseBeforeMethodAfterMethod;
 
 public class C02_HardAssert extends TestBaseBeforeMethodAfterMethod {
-    @Test
+    @Test (groups = "gp1")
     public void test01() {
         //1-amazon anasayfaya gidin
         driver.get("https://amazon.com");

@@ -26,13 +26,13 @@ public class C03_SoftAssert extends TestBaseCross {
 
         //3-arama kutusnun erişilebilir oldugunu tets edin
         WebElement aramaKutusu = driver.findElement(By.id("twotabsearchtextbox"));
-        softAssert.assertTrue(aramaKutusu.isEnabled(),"webelemente erisilemedi");
+        softAssert.assertTrue(aramaKutusu.isDisplayed(),"webelemente erisilemedi");
 
-        //4-arama kutusuna Nuella yazıp aratın
+        //4-arama kutusuna Nutella yazıp aratın
         aramaKutusu.sendKeys("Nutella", Keys.ENTER);
 
         //5-arama yapıldıgını test edin
-        WebElement sonuc = driver.findElement(By.xpath("//*[@class='a-section a-spacing-small a-spacing-top-small']"));
+        WebElement sonuc = driver.findElement(By.xpath("//div[@class='a-section a-spacing-small a-spacing-top-small']"));
         softAssert.assertTrue(sonuc.isDisplayed(),"sonuc elementi goruntulenemedi");
 
         //6-arama sonucunun Nutella içerdigini test edin

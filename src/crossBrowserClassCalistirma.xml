@@ -14,3 +14,15 @@
         </classes>
     </test>
 </suite>
+        <!--
+        Interview sorusu : CrossBrowser biliyormusunuz. Biliyorsanız kısaca anlatırmısınız
+        -Öncelikle CrossBrowser yapmak için TestNG framework'unde utilities package'ı altında bir tane driver class'ı oluştururum.
+        XML dosyasından göndereceğim browser'ları burada tanımlamak için parametreli bir method oluştururum.
+        -Sonrasında yine utilities package'ı altında TestBase class'ı oluştururum. Bu class'da parametre notasyonu ile
+        bir method oluştururum ve drive'ımı bu method altında daha önce oluşturmuş olduğum driver class'da oluşturduğum parametreli
+        methoda atama yaparım ve XML dosyasından parametre olarak browser ne gelirse onu çalıştırır.
+        Sonra CrossBrowser yapacağım test class'larımı oluşturur ve oluşturmuş olduğum TestBase class'a extends yaparım.
+        -Son olarak XML dosyamı oluşturur hangi class'larımı hangi browser ile çalıştıracaksam test tag'ından sonra parametre tag'ı
+        ile browser'ımı seçerim.
+        Eğer paralel olarak CrossBrowser yapacaksam suite tag'ına paralel ve thread-count değerlerini eklerim.
+        -->

@@ -28,6 +28,7 @@ public class C01_ReportTest extends TestBaseReport {
         // -test data password : 12345 dataları girip login e basın
         blueRentalPage.passwordBox.sendKeys(ConfigReader.getProperty("bluePassword"));
         extentTest.info("Verilen dogru password girilidi");
+
         // -login butonuna tiklayin
         blueRentalPage.loginButton.click();
         extentTest.info("Login butonuna basildi");

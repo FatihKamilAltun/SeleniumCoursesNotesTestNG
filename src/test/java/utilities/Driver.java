@@ -43,7 +43,6 @@ public class Driver {
                     WebDriverManager.operadriver().setup();
                     driver=new OperaDriver();
                     break;
-
                 case "headless-chrome":
                     WebDriverManager.chromedriver().setup();
                     driver=new ChromeDriver(new ChromeOptions().setHeadless(true));
@@ -51,9 +50,7 @@ public class Driver {
                 default:
                     WebDriverManager.chromedriver().setup();
                     driver=new ChromeDriver();
-
             }
-
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         }
